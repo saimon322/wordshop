@@ -1,0 +1,83 @@
+/*====================================
+            Small Screens            
+=====================================*/
+
+@media only screen and (max-width: 40em) {
+    /* TOP BAR Mobile STYLING */
+    .top-bar { background: #333333;}
+    .top-bar-section ul li > a{
+        color: white; 
+        font-size: 13px;
+        background: #333333;
+    }
+    .top-bar-section ul li:hover > a{ background: #111 !important; /* change background color if you need */ }
+
+} /* max-width 640px and lower. Use this for mobiles only */
+
+/*=====================================
+            Medium Screens            
+======================================*/
+
+@media only screen and (min-width: 40.0625em) {
+    /* TOP BAR STYLING */
+    .top-bar { background: transparent; }
+    .top-bar .title-area{ display: none; }
+    .top-bar-section ul { background: transparent; }
+    .top-bar-section ul li { background: transparent; }
+    .top-bar-section li:not(.has-form) a:not(.button) {
+        color: black;
+        background: transparent;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .top-bar-section li:not(.has-form) a:not(.button):hover {
+        color: red;
+        background: grey;
+    }
+    .top-bar-section li.current-menu-item > a:not(.button) {
+        color: grey;
+        background: orange;
+    }
+    .top-bar-section .has-dropdown > a { padding: 0 15px !important; }
+    .top-bar-section .has-dropdown > a:after { display: none; }
+
+    /* Dropdown Styling*/
+    .top-bar-section ul li:hover:not(.has-form) > a {
+        background: green;
+        color: black;
+    }
+    .top-bar-section .dropdown li:not(.has-form) a:not(.button) {
+        color: white;
+        background: olive;
+    }
+    .top-bar-section .dropdown li:not(.has-form):hover > a:not(.button) {
+        color: grey;
+        background: bisque;
+    }
+    .top-bar-section .has-dropdown > .dropdown li .dropdrown_menu li a { background: blue; }
+    .top-bar-section .has-dropdown > .dropdown li .dropdrown_menu li:hover a {
+        color: white;
+        text-decoration: underline;
+        background: red;
+    }
+    /* Align Menu to the right
+        .top-bar-section { float:right; } */
+    /* Align Menu to the center
+        .top-bar-section { float:none; text-align: center; }
+        .top-bar-section ul{display: inline-block;} */
+
+}  /* min-width 641px */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+/*====================================
+            Large Screens            
+=====================================*/
+
+@media only screen and (min-width: 64.063em) { 
+
+
+} /* min-width 1025px, large screens */
+
+
