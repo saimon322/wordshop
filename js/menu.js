@@ -7,7 +7,7 @@
     $("#menu-main-menu > li.menu-item:has('.sub-menu')").hover(function(){
         setTimeoutConst = setTimeout($.proxy(function(){
             let subMenu = $(this).children('.sub-menu');
-            let newHeight = headerHeight + subMenu.innerHeight();
+            let newHeight = headerHeight + subMenu.innerHeight() - 15;
             $('.header').stop().addClass('header--on').css({"height": newHeight});
             subMenu.stop().addClass('sub-menu--active');
         },this), delay);
