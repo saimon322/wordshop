@@ -23,7 +23,9 @@ get_header(); ?>
             ?>
             <div class="faculty__main">
                 <div class="faculty__breadcrumbs">
-                    <a href="<?php echo $termUrl; ?>"><?php echo $term->name; ?></a>
+                    <a href="<?php echo get_page_link(11807); ?>">
+                        <?php echo get_the_title(11807); ?>
+                    </a>
                     <?php the_field('faculty_breadcrumbs', 'option'); ?>
                 </div>
                 <h2 class="h-big faculty__title">

@@ -9,11 +9,16 @@ function works_tmpl() { ?>
     <div class="works-slider">
         <div class="swiper-container works-slider__container">
             <div class="swiper-wrapper works-slider__wrapper">
-                <?php
-                $post_objects = get_field('stud_works', 'option');
-                if( $post_objects ): ?>
-                <?php foreach( $post_objects as $post_id):
-                    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), 'large', false, '' ); 
+                <?php $arg = array(
+                    'post_type'	    => 'success-stories',
+                    'order'		    => 'DESC',
+                    'posts_per_page'    => 4
+                );
+                $the_query = new WP_Query( $arg );
+                if ( $the_query->have_posts() ) :
+                while ( $the_query->have_posts() ) : $the_query->the_post();
+                $post_id = $post->ID;
+                $src = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), 'large', false, '' ); 
                 ?>
                 <div class="works-item swiper-slide">
                     <a href="<?php the_permalink($post_id); ?>" class="works-item__link"></a>
@@ -29,7 +34,7 @@ function works_tmpl() { ?>
                         </div>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <?php endwhile; ?>
                 <?php endif; ?>
             </div>
             <div class="works-slider__pagination swiper-pagination"></div>

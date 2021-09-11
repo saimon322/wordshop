@@ -4,6 +4,7 @@
  */
 ?>
 
+<?php if(!($args['hide_form'])): ?>
 <!-- contact-form -->
 <div class="contact-form">
     <div class="container">
@@ -39,6 +40,7 @@
     </div>
 </div>
 <!-- contact-form -->
+<?php endif; ?>
 
 </main>
 

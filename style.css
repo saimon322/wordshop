@@ -1194,7 +1194,6 @@ main {
 
 .header {
   background: #F0F0F0;
-  padding: 20px 0;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -1222,16 +1221,21 @@ main {
           box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
 }
 
+body.admin-bar .header {
+  top: 32px;
+}
+
 .header__container {
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (min-width: 992px) {
@@ -1262,18 +1266,18 @@ main {
 }
 
 .header__logo {
-  width: 170px;
+  width: 150px;
+}
+
+@media (min-width: 1200px) {
+  .header__logo {
+    width: 170px;
+  }
 }
 
 @media (min-width: 1400px) {
   .header__logo {
     width: 180px;
-  }
-}
-
-@media (max-width: 1199px) {
-  .header__logo {
-    width: 115px;
   }
 }
 
@@ -1312,8 +1316,8 @@ main {
 }
 
 .header__phone {
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 14px;
+  line-height: 16px;
   font-weight: bold;
   color: #000;
   display: block;
@@ -1338,57 +1342,49 @@ main {
 }
 
 #menu-main-menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#menu-main-menu li:hover > a {
-  color: #CB1F2D;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto auto;
+      grid-template-columns: auto auto auto auto auto;
 }
 
 #menu-main-menu > li {
   position: relative;
 }
 
+#menu-main-menu > li:hover > a {
+  color: #CB1F2D;
+}
+
 #menu-main-menu > li > a {
+  font-size: 14px;
+  line-height: 20px;
   white-space: nowrap;
   font-weight: bold;
-  padding: 0 6px;
+  padding-right: 30px;
 }
 
 @media (min-width: 1400px) {
   #menu-main-menu > li > a {
-    padding: 0 8px;
-  }
-}
-
-@media (max-width: 1199px) {
-  #menu-main-menu > li > a {
-    padding: 0 5px;
+    font-size: 16px;
+    padding-right: 40px;
   }
 }
 
 #menu-main-menu > li > .sub-menu {
   position: absolute;
+  top: 20px;
+  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  top: 14px;
-  left: 6px;
-  padding: 18px 0;
+  min-width: 100%;
+  padding: 12px 0 30px;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: .5s ease;
   transition: .5s ease;
-}
-
-@media (min-width: 1400px) {
-  #menu-main-menu > li > .sub-menu {
-    top: 16px;
-    left: 8px;
-    padding: 20px 0;
-  }
 }
 
 #menu-main-menu > li > .sub-menu--active {
@@ -5567,6 +5563,10 @@ li > a:after {
   }
 }
 
+.post__text p:not(:last-child) {
+  margin-bottom: 15px;
+}
+
 .post__text a:not(.button) {
   color: #000;
   text-decoration: underline;
@@ -5710,6 +5710,10 @@ li > a:after {
     height: calc(56.25vw - 18px);
     margin: 20px 0;
   }
+}
+
+.post__text p {
+  margin-bottom: 0;
 }
 
 .page__content {
@@ -7845,12 +7849,68 @@ li > a:after {
     margin: 20px 0;
   }
 }
-/*# sourceMappingURL=style.css.map */
+
+.page404 {
+  height: calc(100vh - 42px);
+  background-color: #CB1F2D;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 300px;
+}
+
+@media (min-width: 768px) {
+  .page404 {
+    height: calc(100vh - 70px);
+  }
+}
+
+.page404__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  padding-top: 100px;
+  color: #fff;
+}
+
+.page404__title {
+  margin-bottom: 0;
+  font-size: 15vw;
+  line-height: 1;
+}
+
+.page404__text {
+  margin-bottom: 30px;
+}
+
+.page404__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page404__link {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0;
+  margin: 0 10px;
+}
+
+.page404__link:hover {
+  border-color: #fff;
+}
 
 .ginput_container select {
-	display: block !important;
+  display: block !important;
 }
 
 .ui-selectmenu-button {
-	display: none;
+  display: none;
 }

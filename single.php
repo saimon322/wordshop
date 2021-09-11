@@ -55,4 +55,7 @@ wp_enqueue_script( 'popupInit', get_template_directory_uri() . '/js/initPopUp.js
     <?php echo do_shortcode( get_field('popup_form_shortcode', 'option') ); ?>
 </div>
 
-<?php get_footer(); ?>
+<?php 
+$term_id = get_the_category( get_the_ID() )[0]->term_id;
+$hide_form = ($term_id == 56 || $term_id == 86) ? true: false;
+get_footer(null, array('hide_form' => $hide_form)); ?>

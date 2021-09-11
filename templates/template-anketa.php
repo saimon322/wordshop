@@ -27,4 +27,4 @@ get_header(); ?>
             jQuery('.anketa__container--headline').css('display', 'none');
         });
     </script>
-<?php get_footer(); ?>
+<?php get_footer(null, array('hide_form' => true)); ?>

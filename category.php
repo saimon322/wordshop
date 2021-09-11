@@ -79,4 +79,7 @@ $term = get_queried_object();
     </div>
 </section>
 
-<?php get_footer(); ?>
+<?php 
+$term_id = $term->term_id;
+$hide_form = ($term_id == 56 || $term_id == 86) ? true: false;
+get_footer(null, array('hide_form' => $hide_form)); ?>

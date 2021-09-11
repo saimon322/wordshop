@@ -1351,7 +1351,6 @@ main {
 // -------------------------------------- HEADER -------------------------------------- //
 .header {
     background: $color-gray;
-    padding: 20px 0;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -1373,10 +1372,15 @@ main {
         box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
     }
 
+    body.admin-bar & {
+        top: 32px;
+    }
+
     &__container {
+        height: 70px;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: center;
 
         @include media-up(lg) {
             width: 960px;
@@ -1397,14 +1401,14 @@ main {
     }
 
     &__logo {
-        width: 170px;
+        width: 150px;
+
+        @include media-up(xl) {
+            width: 170px;
+        }
 
         @include media-up(xxl) {
             width: 180px;
-        }
-
-        @include media-down(lg) {
-            width: 115px;
         }
 
         a {
@@ -1439,8 +1443,8 @@ main {
     }
 
     &__phone {
-        font-size: 12px;
-        line-height: 14px;
+        font-size: 14px;
+        line-height: 16px;
         font-weight: bold;
         color: #000;
         display: block;
@@ -1463,44 +1467,40 @@ main {
 }
 
 #menu-main-menu {
-    display: flex;
-
-    li:hover > a {
-        color: $color-main;
-    }
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
 
     & > li {
         position: relative;
 
+        &:hover > a {
+            color: $color-main;
+        }
+
         & > a {
+            font-size: 14px;
+            line-height: 20px;
             white-space: nowrap;
             font-weight: bold;
-            padding: 0 6px;
+            padding-right: 30px;
 
             @include media-up(xxl) {
-                padding: 0 8px;
-            }
-
-            @include media-down(lg) {
-                padding: 0 5px;
+                font-size: 16px;
+                padding-right: 40px;
             }
         }
 
         & > .sub-menu {
             position: absolute;
+            top: 20px;
+            left: 0;
             display: flex;
-            top: 14px;
-            left: 6px;
-            padding: 18px 0;
+            min-width: 100%;
+            padding: 12px 0 30px;
             opacity: 0;
             visibility: hidden;
             transition: .5s ease;
-
-            @include media-up(xxl) {
-                top: 16px;
-                left: 8px;
-                padding: 20px 0;
-            }
 
             &--active {
                 opacity: 1;
@@ -5330,4 +5330,58 @@ li>a:after {
     &__text {
         @include text-content;
     }
+}
+
+// ---------------------------------- PAGE 404 -------------------------------------- //
+.page404 {
+    height: calc(100vh - 42px);
+    background-color: $color-main;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 300px;
+
+    @include media-up(md) {
+        height: calc(100vh - 70px);
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        padding-top: 100px;
+        color: #fff;
+    }
+
+    &__title {
+        margin-bottom: 0;
+        font-size: 15vw;
+        line-height: 1;
+    }
+
+    &__text {
+        margin-bottom: 30px;
+    }
+
+    &__links {
+        display: flex;
+    }
+
+    &__link {
+        flex: 1 1 0;
+        margin: 0 10px;
+
+        &:hover {
+            border-color: #fff;
+        }
+    }
+}
+
+// Additional
+.ginput_container select {
+	display: block !important;
+}
+
+.ui-selectmenu-button {
+	display: none;
 }

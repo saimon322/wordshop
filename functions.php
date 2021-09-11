@@ -41,8 +41,8 @@
     ));
 
     acf_add_options_sub_page(array(
-      'page_title'  => 'Настройки хэдера',
-      'menu_title'  => 'Хэдер',
+      'page_title'  => 'Настройки шапки',
+      'menu_title'  => 'Шапка',
       'parent_slug' => 'theme-general-settings'
     ));
 
@@ -83,8 +83,8 @@
     ));
 
     acf_add_options_sub_page(array(
-      'page_title'  => 'Страница факультета',
-      'menu_title'  => 'Факультет',
+      'page_title'  => 'Страница программы',
+      'menu_title'  => 'Страница программы',
       'parent_slug' => 'theme-general-settings'
     ));
 
