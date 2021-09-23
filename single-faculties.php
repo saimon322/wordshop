@@ -23,8 +23,15 @@ get_header(); ?>
             ?>
             <div class="faculty__main">
                 <div class="faculty__breadcrumbs">
+                    <?php $post_type = get_post_type(); ?>
+                    <?php //echo get_post_type_archive_link($post_type); ?>
+                    <a href="<?php echo get_page_link(121); ?>">
+                        <?php echo get_post_type_object($post_type)->labels->name; ?>
+                    </a>
+                    /
                     <a href="<?php echo $termUrl; ?>"><?php echo $term->name; ?></a>
-                    <?php the_field('faculty_breadcrumbs', 'option'); ?>
+                    /
+                    <?php the_field('faculty_breadcrumbs', 'option'); ?>:
                 </div>
                 <h2 class="h-big faculty__title">
                     <?php the_title(); ?>
@@ -38,20 +45,22 @@ get_header(); ?>
                     <span style="background: <?php the_field('term_color', $term) ?>"></span>
                 </div>
                 <ul class="faculty__params">
+                    <?php $titles = get_field('year_programs', 'option') ?>
                     <li class="faculty__param faculty-param">
                         <div class="faculty-param__title">
-                            <?php the_field('faculty_price_title', 'option'); ?>
+                            <?php echo $titles['title1']; ?>
                         </div>
                         <div class="faculty-param__value">
                             <?php the_field('program_price'); ?>
                         </div>
                         <div class="faculty-param__text">
                             <?php the_field('program_price_year'); ?>
+                            <?php the_field('program_format'); ?>
                         </div>
                     </li>
                     <li class="faculty__param faculty-param">
                         <div class="faculty-param__title">
-                            <?php the_field('faculty_duration_title', 'option'); ?>
+                            <?php echo $titles['title2']; ?>
                         </div>
                         <div class="faculty-param__value">
                             <?php the_field('program_duration'); ?>
@@ -59,7 +68,7 @@ get_header(); ?>
                     </li>
                     <li class="faculty__param faculty-param">
                         <div class="faculty-param__title">
-                            <?php the_field('faculty_slots_title', 'option'); ?>
+                            <?php echo $titles['title3']; ?>
                         </div>
                         <div class="faculty-param__value">
                             <?php the_field('program_slots'); ?>

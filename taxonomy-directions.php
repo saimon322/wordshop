@@ -31,10 +31,12 @@ $termId = $term->term_id;
                 <div class="direction__logo direction__logo--mobile wow fadeInLeft">
                     <img src="<?php the_field('term_thumb', $term) ?>" alt="">
                 </div>
-                <div class="direction__faculties direction-faculties">
+                
+                <div class="direction-faculties">
                     <p class="direction-faculties__title">
-                        <?php the_field('faculty_heading', 6) ?>
+                        <?php echo get_post_type_object('faculties')->label . ':'; ?>
                     </p>
+
                     <?php 
                         $pages = get_posts(array(
                             'post_type' => 'faculties',
@@ -53,14 +55,42 @@ $termId = $term->term_id;
                         <?php foreach ($pages as $page): ?>
                             <li class="direction-faculties__item">
                                 <a href="<?php echo get_the_permalink($page); ?>" class="direction-faculties__link">
-                                    <h3><?php echo $page->post_title; ?></h3>
+                                    <h4><?php echo $page->post_title; ?></h4>
                                 </a>
                             </li>
                         <?php endforeach ?>
                     </ul>
-                    <!-- /.direction-faculties__list -->
                 </div>
-                <!-- /.direction-faculties -->
+
+                <div class="direction-faculties">
+                    <p class="direction-faculties__title">
+                        <?php echo get_post_type_object('short-programs')->label . ':'; ?>
+                    </p>
+
+                    <?php 
+                        $pages = get_posts(array(
+                            'post_type' => 'short-programs',
+                            'numberposts' => -1,
+                            'order' => ASC,
+                            'tax_query' => array(
+                            array(
+                                'taxonomy' => 'directions',
+                                'field' => 'slug',
+                                'terms' => $term->slug
+                            )
+                            )
+                        )); 
+                    ?>
+                    <ul class="direction-faculties__list">
+                        <?php foreach ($pages as $page): ?>
+                            <li class="direction-faculties__item">
+                                <a href="<?php echo get_the_permalink($page); ?>" class="direction-faculties__link">
+                                    <h4><?php echo $page->post_title; ?></h4>
+                                </a>
+                            </li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="direction__full-text">

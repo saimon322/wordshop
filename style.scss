@@ -1472,8 +1472,6 @@ main {
     grid-template-columns: auto auto auto auto auto;
 
     & > li {
-        position: relative;
-
         &:hover > a {
             color: $color-main;
         }
@@ -1493,7 +1491,7 @@ main {
 
         & > .sub-menu {
             position: absolute;
-            top: 20px;
+            top: 40px;
             left: 0;
             display: flex;
             min-width: 100%;
@@ -3648,11 +3646,22 @@ li>a:after {
     margin-bottom: -20px;
 
     &__text {
-        @include text30;
+        @include text23;
+        font-weight: bold;
 
         @include media-up(md) {
-            padding-top: 90px;
             max-width: 300px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: underline;
+            transition: color .25s ease;
+    
+            &:hover {
+                color: $color-main;
+                text-decoration: none;
+            }
         }
     }
 }
@@ -3681,6 +3690,8 @@ li>a:after {
     }
 
     &--text {
+        display: flex;
+        align-items: center;
         margin-bottom: 10px;
     }
 
@@ -4061,6 +4072,8 @@ li>a:after {
 }
 
 .faculty-param {
+    min-width: 150px;
+
     &:not(:last-child) {
         margin-right: 40px;
 
@@ -4072,9 +4085,9 @@ li>a:after {
 
     &__title {
         @include text23;
-        min-height: 84px;
+        min-height: 60px;
         max-width: 130px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
 
         @include media-down(md) {
             min-height: 69px;

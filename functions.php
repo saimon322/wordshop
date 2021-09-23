@@ -742,4 +742,8 @@ function my_get_the_excerpt( $post_id ){
 
 require_once dirname(__DIR__ . '/wordshop') . '/functions/cron-sender/DateUpdater.php'; // Класс для смены даты со строкового значения на datetime
 require_once dirname(__DIR__ . '/wordshop') . '/functions/cron-sender/cron.php'; // Cron event для рассылки за полтора часа
+
+
+
+
 ?>

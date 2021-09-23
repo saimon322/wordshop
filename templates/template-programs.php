@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: Годовые программы
+ * Template Name: Программы
  */
 get_header(); ?>
 
@@ -46,8 +46,9 @@ get_header(); ?>
                 </div>
 
                 <?php 
+                    $post_type = get_field('program_type');
                     $pages = get_posts(array(
-                        'post_type' => 'faculties',
+                        'post_type' => $post_type,
                         'numberposts' => -1,
                         'order' => ASC,
                         'tax_query' => array(
